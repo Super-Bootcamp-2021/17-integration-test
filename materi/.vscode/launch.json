@@ -1,0 +1,58 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "service",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/service/server.js",
+      "args": [],
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "chrome",
+      "url": "http://localhost:5757",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        "webpack://todo-app/./src/*": "${webRoot}/*"
+      }
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "schema",
+      "url": "http://localhost:5757",
+      "webRoot": "${workspaceFolder}/schema",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        "webpack://todo-app/./schema/*": "${webRoot}/*"
+      }
+    },
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "firefox",
+      "url": "http://localhost:5757",
+      "webRoot": "${workspaceFolder}/src",
+      "pathMappings": [
+        {
+          "url": "webpack://todo-app/src",
+          "path": "${webRoot}"
+        }
+      ]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "service-chrome",
+      "configurations": ["service", "chrome"]
+    }
+  ]
+}
