@@ -36,10 +36,16 @@ paths:
           description: 'task yang baru di input'
           schema:
             $ref: '#/definitions/Task'
+          examples:
+            application/json: { "id": 1, "task": "makan", "done": false }
         '400':
           description: 'data pekerjaan tidak valid'
+          examples:
+            text/plain: 'data pekerjaan tidak valid'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /remove:
     post:
       tags:
@@ -61,12 +67,20 @@ paths:
           description: 'pekerjaan yang barusan di hapus'
           schema:
             $ref: '#/definitions/Task'
+          examples:
+            application/json: { "id": 1, "task": "makan", "done": false }
         '401':
           description: 'parameter id tidak ditemukan'
+          examples:
+            text/plain: 'parameter id tidak ditemukan'
         '404':
-          description: 'pekerjaan tidak ditemukan'
+          description: 'pekerja tidak ditemukan'
+          examples:
+            text/plain: 'pekerja tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /list:
     get:
       operationId: 'listTask'
@@ -85,8 +99,17 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Task'
+          examples:
+            application/json:
+              [
+                { "id": 1, "task": "makan", "done": false },
+                { "id": 2, "task": "minum", "done": false },
+                { "id": 3, "task": "belajar", "done": false }
+              ]
         '500':
           description: kesalahan server
+          examples:
+            text/plain: 'kesalahan server'
   /done:
     put:
       tags:
@@ -108,12 +131,20 @@ paths:
           description: 'task yang ditandakan sebagai sudah selesai'
           schema:
             $ref: '#/definitions/Task'
+          examples:
+            application/json: { "id": 1, "task": "makan", "done": true }
         '401':
           description: 'parameter id tidak ditemukan'
+          examples:
+            text/plain: 'parameter id tidak ditemukan'
         '404':
-          description: 'pekerjaan tidak ditemukan'
+          description: 'pekerja tidak ditemukan'
+          examples:
+            text/plain: 'pekerja tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /undone:
     put:
       tags:
@@ -135,12 +166,20 @@ paths:
           description: 'task yang dibatalkan penyelesainnya'
           schema:
             $ref: '#/definitions/Task'
+          examples:
+            application/json: { "id": 1, "task": "makan", "done": false }
         '401':
           description: 'parameter id tidak ditemukan'
+          examples:
+            text/plain: 'parameter id tidak ditemukan'
         '404':
           description: 'pekerja tidak ditemukan'
+          examples:
+            text/plain: 'pekerja tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
 
 definitions:
   TaskData:
@@ -163,4 +202,5 @@ definitions:
         example: makan
       done:
         type: boolean
-        description: 'true mendandakan pekerjaan sudah selesai'
+        description: 'true menandakan pekerjaan sudah selesai'
+        example: false
