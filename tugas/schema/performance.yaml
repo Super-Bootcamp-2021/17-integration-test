@@ -23,13 +23,18 @@ paths:
         - 'application/json'
       produces:
         - 'application/json'
+        - 'text/plain'
       responses:
         '200':
           description: summary performance
           schema:
             $ref: '#/definitions/Performance'
+          examples:
+            application/json: {"total_task": 10, "task_done": 4, "task_cancelled": 3, "total_worker": 2}
         '500':
           description: kesalahan server
+          examples:
+            text/plain: 'kesalahan server'
 definitions:
   Performance:
     type: object
