@@ -5,7 +5,7 @@
   "cancelled": true,
   "attachment": "1612867757630-580.bin",
   "added_at": "2021-02-09 17:49:18.09079",
-  "assigneeId": {
+  "assignee": {
     "id": 1,
     "name": "risky"
   }
