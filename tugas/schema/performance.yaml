@@ -38,14 +38,14 @@ definitions:
         description: menampilkan jumlah pekerja
         example: 3
       task:
-        type: string
+        type: number
         description: menampilkan jumlah tugas
         example: 2
       done:
-        type: boolean
+        type: number
         description: menampilkan jumlah tugas yang selesai
         example: 0
       cancel:
-        type: boolean
+        type: number
         description: menampilkan jumlah tugas yang batal
         example: 1
