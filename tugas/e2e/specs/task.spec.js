@@ -38,6 +38,22 @@ describe('Task Page', () => {
       cy.get('@taskList').eq(1).should('contain.text', 'belajar');
       cy.get('@taskList').eq(2).should('contain.text', 'tidur');
     });
+
+    it('error jika request gagal', () => {
+      cy.intercept('GET', 'http://localhost:7001/list', {
+        fixture: 'workerTask',
+      }).as('taskFail');
+      cy.intercept('GET', 'http://localhost:7002/list', {
+        statusCode: 500,
+      }).as('workerFail');
+      cy.visit('/tasks.html');
+      cy.wait('@taskFail');
+      cy.wait('@workerFail');
+      cy.get('#error-text').should(
+        'contain.text',
+        'gagal memuat daftar pekerjaan'
+      );
+    });
   });
 
   describe('tambah pekerjaan', () => {
@@ -91,7 +107,7 @@ describe('Task Page', () => {
       cy.get('#job').should('be.empty');
     });
 
-    it('jika diklik attachment akan keluar gambarnya', () => {
+    it.skip('jika diklik attachment akan keluar gambarnya', () => {
       cy.intercept(
         {
           hostname: 'localhost:7002',
@@ -112,6 +128,35 @@ describe('Task Page', () => {
       cy.get('#list').children().as('taskList');
       cy.get('@taskList').children().as('itemTask');
       cy.get('@itemTask').eq(0).click();
+    });
+
+    it('error jika request gagal', () => {
+      cy.intercept(
+        {
+          method: 'POST',
+          pathname: '/add',
+        },
+        {
+          body: { fixture: 'task' },
+          statusCode: 500,
+        }
+      ).as('taskAddFail');
+      cy.visit('/tasks.html');
+      cy.wait('@taskList');
+      cy.wait('@workerList');
+      cy.get('#job').type('main main').blur();
+      cy.fixture('dino.png').then((fileContent) => {
+        cy.get('input[type="file"]').attachFile({
+          fileContent: fileContent.toString(),
+          fileName: 'dino.png',
+          mimeType: 'image/png',
+        });
+      });
+      cy.get('#form').submit();
+      cy.get('#error-text').should(
+        'contain.text',
+        'gagal menambahkan main main'
+      );
     });
   });
 
@@ -154,6 +199,32 @@ describe('Task Page', () => {
       cy.get('@taskList').eq(1).should('not.contain.text', 'sudah selesai');
       cy.get('@taskList').eq(1).children().as('taskItem');
       cy.get('@taskItem').eq(4).click();
+    });
+
+    it('error jika request gagal', () => {
+      cy.intercept(
+        {
+          method: 'PUT',
+          pathname: '/done',
+          query: {
+            id: '2',
+          },
+        },
+        {
+          statusCode: 500,
+        }
+      ).as('taskFail');
+      cy.visit('/tasks.html');
+      cy.wait('@taskList');
+      cy.wait('@workerList');
+      cy.get('#list').children().as('taskList');
+      cy.get('@taskList').eq(1).should('not.contain.text', 'sudah selesai');
+      cy.get('@taskList').eq(1).children().as('taskItem');
+      cy.get('@taskItem').eq(4).click();
+      cy.get('#error-text').should(
+        'contain.text',
+        'gagal menyelesaikan pekerjaan'
+      );
     });
   });
 
@@ -198,21 +269,31 @@ describe('Task Page', () => {
       cy.get('@taskItem').eq(3).click();
       cy.get('@taskList').should('have.length', '2');
     });
-  });
 
-  it.only('error jika request gagal', () => {
-    cy.intercept('GET', 'http://localhost:7001/list', {
-      statusCode: 500,
-    }).as('taskFail');
-    cy.intercept('GET', 'http://localhost:7002/list', {
-      statusCode: 500,
-    }).as('workerFail');
-    cy.visit('/tasks.html');
-    cy.wait('@taskFail');
-    cy.wait('@workerFail');
-    cy.get('#error-text').should(
-      'contain.text',
-      'gagal memuat daftar pekerjaan'
-    );
+    it('error jika request gagal', () => {
+      cy.intercept(
+        {
+          method: 'PUT',
+          pathname: '/cancel',
+          query: {
+            id: '3',
+          },
+        },
+        {
+          statusCode: 500,
+        }
+      ).as('taskFail');
+      cy.visit('/tasks.html');
+      cy.wait('@taskList');
+      cy.wait('@workerList');
+      cy.get('#list').children().as('taskList');
+      cy.get('@taskList').should('have.length', '3');
+      cy.get('@taskList').eq(2).children().as('taskItem');
+      cy.get('@taskItem').eq(3).click();
+      cy.get('#error-text').should(
+        'contain.text',
+        'gagal membatalkan pekerjaan'
+      );
+    });
   });
 });
