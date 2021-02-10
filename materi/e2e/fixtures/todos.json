@@ -1,5 +1,0 @@
-[
-  { "id": 1, "task": "makan", "done": false },
-  { "id": 2, "task": "minum", "done": true },
-  { "id": 3, "task": "belajar", "done": false }
-]

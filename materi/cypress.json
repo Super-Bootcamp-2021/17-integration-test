@@ -1,9 +1,0 @@
-{
-  "baseUrl": "http://localhost:5757",
-  "integrationFolder": "e2e/specs",
-  "fixturesFolder": "e2e/fixtures",
-  "pluginsFile": false,
-  "supportFile": false,
-  "screenshotsFolder": "e2e/screenshots",
-  "videosFolder": "e2e/recordings"
-}
