@@ -1,0 +1,11 @@
+[
+    { 
+        "id": 2, 
+        "name": "William Sherlock", 
+        "age": 25, 
+        "bio": "ini adalah bio dari William Sherlock", 
+        "address": "London", 
+        "photo": "gambar2.jpeg"
+    }
+]
+  
