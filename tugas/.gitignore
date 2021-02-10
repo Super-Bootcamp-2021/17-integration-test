@@ -9,3 +9,4 @@ docs
 www/*.txt
 e2e/screenshootsFolder
 e2e/videosFolder
+worker.spec.js
