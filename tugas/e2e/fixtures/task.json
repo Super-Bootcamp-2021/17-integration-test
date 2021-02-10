@@ -1,16 +1,16 @@
 {
+  "id": 1,
+  "job": "mancing perkara",
+  "done": false,
+  "cancelled": false,
+  "addedAt": "2021-02-09T17: 01: 32.000Z",
+  "attachment": "doc.doc",
+  "assignee": {
     "id": 1,
-    "job": "mancing perkara",
-    "done": false,
-    "cancelled": false,
-    "addedAt": "2021-02-09T17: 01: 32.000Z",
-    "attachment": "doc.doc",
-    "assignee": {
-        "id": 1,
-        "name": "yudi asrama",
-        "age": 15,
-        "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
-        "address": "BTN Graha Permai, Jakarta Utara",
-        "photo": "foto1.png"
-    }
+    "name": "ahmad",
+    "age": 23,
+    "bio": "tidur enak",
+    "address": "Bekasi",
+    "photo": "user-1.jpg"
+  }
 }

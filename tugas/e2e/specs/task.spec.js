@@ -7,7 +7,7 @@ describe('Halaman  Tasks', () => {
   });
   
   beforeEach(() => {
-    cy.intercept('GET','localhost:7001/list',{ fixture: 'workers' }).as('workerlist');
+    cy.intercept('GET','localhost:7000/list',{ fixture: 'workers' }).as('workerlist');
     cy.intercept('GET','localhost:7002/list', { fixture: 'tasks' }).as('tasklist');
   })
   describe('mendapatkan list pekerjaan', () => {    
@@ -21,9 +21,9 @@ describe('Halaman  Tasks', () => {
       cy.get('@task').eq(2).should('contain.text', 'mencuci baju')
       cy.get('@task').eq(3).should('contain.text', 'merapikan meja')
       cy.get('#assignee').children().as('assignee')
-      cy.get('@assignee').eq(0).should('have.text', 'yudi asrama')
-      cy.get('@assignee').eq(1).should('have.text', 'yudi sutrisno')
-      cy.get('@assignee').eq(2).should('have.text', 'yudi santoso')
+      cy.get('@assignee').eq(0).should('have.text', 'ahmad')
+      cy.get('@assignee').eq(1).should('have.text', 'fauzan')
+      cy.get('@assignee').eq(2).should('have.text', 'maulana')
     });
     describe('mengubah status pekerjaan', () => {
       it('harusnya bisa ngilang', () => {
@@ -84,7 +84,7 @@ describe('Halaman  Tasks', () => {
     cy.wait('@tasklist'); 
     cy.wait('@workerlist');
     cy.get("#form > textarea").type('mancing perkara')      
-    cy.get("#form > select").select('yudi asrama')
+    cy.get("#form > select").select('fauzan')
     cy.get("#attachment").click().attachFile('saya.doc')
     cy.get("#form").submit()
     cy.get("#list").should('have.length', 1)

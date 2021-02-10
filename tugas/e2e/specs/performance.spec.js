@@ -59,8 +59,6 @@ describe('performance page', () =>{
             cy.get('#loading-text').should('contain.text', 'memuat...');
         })
         it('seharusnya bisa menampilkan error ketika gagal load data', () => {
-           cy.visit('/');
-           cy.get('#menuPerformance').click();  
             cy.intercept(
                 {method: 'GET', pathname: '/summary', 
                 }, 
@@ -70,6 +68,8 @@ describe('performance page', () =>{
                 }, 
                 },  
             );
+           cy.visit('/');
+           cy.get('#menuPerformance').click();  
             cy.get('#tasks').should('contain.text', '0');
             cy.get('#task-done').should('contain.text', '0');
             cy.get('#task-canceled').should('contain.text', '0');
