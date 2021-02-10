@@ -3,9 +3,12 @@ node_modules
 *.db
 file-storage
 www/*.js
+docs
+.todorc
 .env
-www/*.js
 www/*.txt
+e2e/screenshootsFolder
+e2e/videosFolder
 e2e/recordings
 e2e/screenshots
 e2e/fixtures/images
