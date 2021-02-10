@@ -1,3 +1,1 @@
-describe('Performance Page', () => {
-  
-});
+describe('Performance Page', () => {});
