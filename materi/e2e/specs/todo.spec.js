@@ -30,6 +30,27 @@ describe('Todo Page', () => {
     });
   });
 
+  describe('tugas selesai', () => {
+    beforeEach(() => {
+      cy.intercept('/list', { fixture: 'todos' }).as('getList');
+    });
+
+    it.skip(
+      'seharusnya mencoret task yang dinyatakan selesai',
+      { defaultCommandTimeout: 4000 },
+      () => {
+        cy.intercept('PUT', '/done', { id: 1, task: 'makan', done: true });
+        cy.visit('/');
+        cy.wait('@getList');
+        cy.get('#todo-list').children().eq(0).as('makan');
+        cy.get('@makan');
+        cy.get('@makan').should('not.have.class', 'todo-done');
+        cy.get('@makan').click();
+        cy.get('#todo-list').children().eq(0).should('have.class', 'todo-done');
+      }
+    );
+  });
+
   describe('daftar item', () => {
     it('seharusnya bisa menampilkan item tugas', () => {
       cy.intercept(
