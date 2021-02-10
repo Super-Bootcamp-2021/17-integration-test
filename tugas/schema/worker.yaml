@@ -23,6 +23,7 @@ paths:
         - 'multipart/form-data'
       produces:
         - 'application/json'
+        - 'text/plain'
       parameters:
         - in: formData
           name: name
@@ -54,12 +55,20 @@ paths:
           description: 'worker yang baru di input'
           schema:
             $ref: '#/definitions/Worker'
+          examples:
+            application/json: { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" }
         '401':
           description: 'data registrasi pekerja tidak lengkap'
+          examples:
+            text/plain: 'data registrasi pekerja tidak lengkap'
         '403':
           description: 'aborted'
+          examples:
+            text/plain: 'service aborted'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /list:
     get:
       operationId: 'listWorker'
@@ -78,8 +87,17 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Worker'
+          examples:
+            application/json: 
+              [
+                { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" },
+                { "id": 2, "name": "maya", "age": 18, "bio": "lagi di rumah", "address": "jalan santai", "photo": "100320202344-223.jpg" },
+                { "id": 3, "name": "andi", "age": 23, "bio": "sibuk", "address": "jalan ke kantor", "photo": "100320194030-110.jpg" }
+              ]
         '500':
           description: kesalahan server
+          examples:
+            text/plain: 'kesalahan server'
   /info:
     get:
       tags:
@@ -95,17 +113,26 @@ paths:
         - 'application/json'
       produces:
         - 'application/json'
+        - 'text/plain'
       responses:
         '200':
           description: 'data worker dengan id yang diinput'
           schema:
             $ref: '#/definitions/Worker'
+          examples:
+            application/json: { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" }
         '401':
           description: 'parameter id tidak ditemukan'
+          examples:
+            text/plain: 'parameter id tidak ditemukan'
         '404':
           description: 'pekerja tidak ditemukan'
+          examples:
+            text/plain: 'pekerja tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /remove:
     delete:
       tags:
@@ -116,6 +143,7 @@ paths:
         - 'application/json'
       produces:
         - 'application/json'
+        - 'text/plain'
       parameters:
         - in: query
           name: id
@@ -126,12 +154,20 @@ paths:
           description: 'data worker yang dihapus'
           schema:
             $ref: '#/definitions/Worker'
+          examples:
+            application/json: { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" }
         '401':
           description: 'parameter id tidak ditemukan'
+          examples:
+            text/plain: 'parameter id tidak ditemukan'
         '404':
           description: 'pekerja tidak ditemukan'
+          examples:
+            text/plain: 'pekerja tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /photo/{file}:
     get:
       tags:
@@ -141,6 +177,7 @@ paths:
       consumes:
         - 'application/json'
       produces:
+        - 'text/plain'
         - 'image/jpeg'
         - 'image/bmp'
         - 'image/png'
@@ -155,10 +192,16 @@ paths:
           description: 'file yang dibaca'
         '400':
           description: 'request tidak sesuai'
+          examples:
+            text/plain: 'request tidak sesuai'
         '404':
           description: 'error file tidak ditemukan'
+          examples:
+            text/plain: 'error file tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
 definitions:
   Worker:
     type: object
