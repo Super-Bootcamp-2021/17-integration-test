@@ -73,6 +73,7 @@ describe('halaman pekerjaan', () => {
       cy.get('#list').get('div button').eq(2).click();
       cy.wait('@cancelTask');
       cy.get('#list').children().should('have.length', 1);
+      cy.get('#list > :nth-child(1) > :nth-child(2)').should('contain.text', 'ngoding');
     });
   });
 
@@ -90,6 +91,10 @@ describe('halaman pekerjaan', () => {
       cy.visit('/tasks.html');
       cy.wait('@tasksList');
       cy.get('#list').children().should('have.length', 2);
+      cy.get('#list > :nth-child(1) > :nth-child(2)').should('contain.text', 'ngoding');
+      cy.get('#list > :nth-child(1) > :nth-child(3)').should('contain.text', 'Alex');
+      cy.get('#list > :nth-child(2) > :nth-child(2)').should('contain.text', 'memanah');
+      cy.get('#list > :nth-child(2) > :nth-child(3)').should('contain.text', 'Bilal');
     });
   });
 });
