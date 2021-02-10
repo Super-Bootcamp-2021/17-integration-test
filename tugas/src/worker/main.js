@@ -9,7 +9,7 @@ const age = document.getElementById('age');
 const photo = document.getElementById('photo');
 const bio = document.getElementById('bio');
 const address = document.getElementById('address');
-const list = document.getElementById('list');
+const list = document.getElementById('list-worker');
 const errorTxt = document.getElementById('error-text');
 const loadingTxt = document.getElementById('loading-text');
 
