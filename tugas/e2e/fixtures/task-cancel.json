@@ -1,0 +1,19 @@
+[
+    {
+      "id": 2,
+      "job": "mencuci",
+      "done": false,
+      "cancelled": true,
+      "addedAt": "2021-02-09T08:14:57.558Z",
+      "attachment": "test.txt",
+      "assignee": {
+        "id": 2,
+        "name": "Anton",
+        "age": 23,
+        "bio": "asdasd",
+        "address": "sdfgsdfg",
+        "photo": "test.jpg"
+      }
+    }
+  ]
+  
