@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "job": "memasak",
+    "done": false,
+    "cancelled": false,
+    "addedAt": "2021-02-09T08:14:57.558Z",
+    "attachment": "1612858497484-148.png",
+    "assignee": {
+      "id": 2,
+      "name": "Budi",
+      "age": "23",
+      "bio": "ingin menjadi hokage",
+      "address": "jogja",
+      "photo": "1612858486704-99.jpeg"
+    }
+  },
+  {
+    "id": 2,
+    "job": "mencuci",
+    "done": false,
+    "cancelled": false,
+    "addedAt": "2021-02-09T08:14:57.558Z",
+    "attachment": "1612858497484-149.png",
+    "assignee": {
+      "id": 2,
+      "name": "Budi",
+      "age": "23",
+      "bio": "ingin menjadi hokage",
+      "address": "jogja",
+      "photo": "1612858486704-99.jpeg"
+    }
+  }
+]
