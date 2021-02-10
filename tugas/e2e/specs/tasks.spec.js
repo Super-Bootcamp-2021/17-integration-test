@@ -20,7 +20,9 @@ describe('halaman pekerjaan', () => {
     });
 
     it('seharusnya bisa menambahkan pekerjaan', () => {
-      cy.intercept('http://localhost:7002/add', { fixture: 'task-add' }).as('addTask');
+      cy.intercept('http://localhost:7002/add', { fixture: 'task-add' }).as(
+        'addTask'
+      );
       cy.visit('/tasks.html');
       cy.wait('@tasksList');
       cy.wait('@workersList');
@@ -30,6 +32,28 @@ describe('halaman pekerjaan', () => {
       cy.get('#form').submit();
       cy.wait('@addTask');
       cy.get('#list').children().should('have.length', 3);
+    });
+
+    it('error jika form tidak lengkap', () => {
+      cy.intercept(
+        {
+          pathname: 'http://localhost:7002/add',
+          method: 'POST',
+        },
+        {
+          statusCode: 401,
+          headers: {
+            'content-type': 'application/json',
+          },
+        }
+      ).as('addTask');
+      cy.visit('/tasks.html');
+      cy.wait('@tasksList');
+      cy.wait('@workersList');
+      cy.get('#job').type('menyapu');
+      cy.get('#assignee').select('Budi');
+      cy.get('#form').submit();
+      cy.get('#error-text').should('contain.text', 'form isian tidak lengkap!');
     });
   });
 
@@ -56,7 +80,7 @@ describe('halaman pekerjaan', () => {
       cy.visit('/tasks.html');
       cy.wait('@tasksList');
       cy.wait('@workersList');
-      cy.get('#list').get('div button').last().click();
+      cy.get('#list').get('div button').eq(3).click();
       cy.wait('@doneTask');
       cy.get('#list div').eq(1).should('contain.text', 'sudah selesai');
     });
