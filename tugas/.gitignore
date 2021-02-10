@@ -3,3 +3,8 @@ node_modules
 *.db
 file-storage
 www/*.js
+cypress/recordings
+cypress/screenshots
+cypress/videos
+e2e/recordings
+e2e/screenshots
