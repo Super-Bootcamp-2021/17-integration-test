@@ -2,9 +2,9 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    tasks: './webapp/src/tasks/main.js',
-    worker: './webapp/src/worker/main.js',
-    performance: './webapp/src/performance/main.js',
+    tasks: './src/tasks/main.js',
+    worker: './src/worker/main.js',
+    performance: './src/performance/main.js',
   },
   output: {
     path: path.resolve(__dirname, 'www'),
@@ -12,7 +12,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './webapp//www',
+    contentBase: './www',
     port: 7000,
   },
   module: {
