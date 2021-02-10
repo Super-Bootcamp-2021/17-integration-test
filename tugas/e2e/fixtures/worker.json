@@ -1,0 +1,8 @@
+{
+    "id": 4,
+    "name": "adi",
+    "age": 20,
+    "bio": "traveling",
+    "address": "Jakarta",
+    "photo": "localhost:9999/photo/profile.jpg"
+}
