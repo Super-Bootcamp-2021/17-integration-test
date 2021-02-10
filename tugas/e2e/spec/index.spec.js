@@ -17,4 +17,10 @@ describe('Index Page', () => {
       .children()
       .should('have.attr', 'href', 'performance.html');
   });
+
+  it('Bisa menuju halaman yang dituju ketika link diklik', () => {
+    cy.get('ul').children().eq(0).children().as('refWorker');
+    cy.get('@refWorker').click();
+    cy.url().should('include', '/worker.html');
+  });
 });
