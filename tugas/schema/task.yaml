@@ -23,6 +23,7 @@ paths:
         - 'multipart/form-data'
       produces:
         - 'application/json'
+        - 'text/plain'
       parameters:
         - in: formData
           name: job
@@ -44,10 +45,16 @@ paths:
           description: 'worker yang baru di input'
           schema:
             $ref: '#/definitions/Task'
+          examples:
+            application/json: { "id": 1, "job": "makan", "done": false, "cancel": false, "addedAt": "2020-02-09T14:10:54.697Z", "attachment": "090120212649-223.zip", "assignee": { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" } }
         '401':
           description: 'data pekerjaan baru tidak lengkap'
+          examples:
+            text/plain: 'data pekerjaan baru tidak lengkap'
         '500':
           description: 'internal server error'
+          examples:
+            text/plain: 'internal server error'
   /list:
     get:
       operationId: 'listTask'
@@ -66,8 +73,17 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Task'
+          examples:
+            application/json:
+              [
+                { "id": 1, "job": "minum", "done": false, "cancel": false, "addedAt": "2020-01-09T14:10:54.697Z", "attachment": "090120212649-223.zip", "assignee": { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" } },
+                { "id": 2, "job": "makan", "done": false, "cancel": false, "addedAt": "2019-02-09T14:10:54.697Z", "attachment": "090110212649-223.zip", "assignee": { "id": 2, "name": "maya", "age": 18, "bio": "lagi di rumah", "address": "jalan santai", "photo": "100320202344-223.jpg" } },
+                { "id": 3, "job": "mandi", "done": false, "cancel": false, "addedAt": "2020-02-08T14:10:54.697Z", "attachment": "090100212649-223.zip", "assignee": { "id": 3, "name": "andi", "age": 23, "bio": "sibuk", "address": "jalan ke kantor", "photo": "100320194030-110.jpg" } }
+              ]
         '500':
           description: kesalahan server
+          examples:
+            text/plain: 'kesalahan server'
   /done:
     put:
       operationId: 'taskDone'
@@ -83,17 +99,26 @@ paths:
         - 'application/json'
       produces:
         - 'application/json'
+        - 'text/plain'
       responses:
         '200':
           description: 'data task dengan id yang diinput'
           schema:
             $ref: '#/definitions/Task'
+          examples:
+            application/json: { "id": 1, "job": "makan", "done": true, "cancel": false, "addedAt": "2020-02-09T14:10:54.697Z", "attachment": "090120212649-223.zip", "assignee": { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" } }
         '401':
           description: 'parameter id tidak ditemukan'
+          examples:
+            text/plain: 'parameter id tidak ditemukan'
         '404':
           description: 'pekerjaan tidak ditemukan'
+          examples:
+            text/plain: 'pekerjaan tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /cancel:
     put:
       tags:
@@ -104,6 +129,7 @@ paths:
         - 'application/json'
       produces:
         - 'application/json'
+        - 'text/plain'
       parameters:
         - in: query
           name: id
@@ -114,12 +140,20 @@ paths:
           description: 'data pekerjaan yang dibatalkan'
           schema:
             $ref: '#/definitions/Task'
+          examples:
+            application/json: { "id": 1, "job": "makan", "done": false, "cancel": true, "addedAt": "2020-02-09T14:10:54.697Z", "attachment": "090120212649-223.zip", "assignee": { "id": 1, "name": "paul", "age": 20, "bio": "santai", "address": "jalan buntu bos", "photo": "090220212649-220.jpg" } }
         '401':
           description: 'parameter id tidak ditemukan'
+          examples:
+            text/plain: 'parameter id tidak ditemukan'
         '404':
           description: 'pekerjaan tidak ditemukan'
+          examples:
+            text/plain: 'pekerjaan tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
   /attachment/{file}:
     get:
       tags:
@@ -152,13 +186,18 @@ paths:
           description: nama file.
       responses:
         '200':
-          description: 'file yang dibaca'
         '400':
           description: 'request tidak sesuai'
+          examples:
+            text/plain: 'request tidak sesuai'
         '404':
           description: 'error file tidak ditemukan'
+          examples:
+            text/plain: 'error file tidak ditemukan'
         '500':
           description: 'kesalahan server'
+          examples:
+            text/plain: 'kesalahan server'
 definitions:
   Task:
     type: object
