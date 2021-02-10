@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Alex",
+    "age": 20,
+    "bio": "afwfqw",
+    "address": "sdfaadsgsdf",
+    "photo": "test.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Bilal",
+    "age": 20,
+    "bio": "aaaa",
+    "address": "aaaasf",
+    "photo": "test.jpg"
+  }
+]
