@@ -5,24 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
-      "request": "launch",
-      "name": "service",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\index.js",
-      "args": ["performance"],
-      "console": "integratedTerminal"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "test",
-      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-      "args": [],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
-    },
-    {
       "type": "chrome",
       "request": "launch",
       "name": "chrome",
@@ -47,10 +29,4 @@
       ]
     },
   ],
-  "compounds": [
-    {
-      "name": "service-chrome",
-      "configurations": ["service", "chrome"]
-    }
-  ]
 }
