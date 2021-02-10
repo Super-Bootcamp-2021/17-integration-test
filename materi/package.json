@@ -8,15 +8,19 @@
     "dev": "webpack serve --open --mode development",
     "lint": "eslint .",
     "docs:svc": "jsdoc -c service/docs.json",
-    "docs:web": "jsdoc -c docs.json"
+    "docs:web": "jsdoc -c docs.json",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run -b chrome --headless"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^5.0.1",
+    "cypress": "^6.4.0",
     "dotenv-webpack": "^6.0.0",
     "eslint": "^7.19.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-prettier": "^3.3.1",
     "jsdoc": "^3.6.6",
     "json-loader": "^0.5.7",
