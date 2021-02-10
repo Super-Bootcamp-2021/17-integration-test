@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "ahmad",
+    "age": 23,
+    "bio": "tidur enak",
+    "address": "Bekasi",
+    "photo": "user-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "fauzan",
+    "age": 23,
+    "bio": "ngoding seru",
+    "address": "Ciputat",
+    "photo": "user-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "maulana",
+    "age": 23,
+    "bio": "apa aja dah",
+    "address": "Jatinangor",
+    "photo": "user-3.jpg"
+  }
+]
