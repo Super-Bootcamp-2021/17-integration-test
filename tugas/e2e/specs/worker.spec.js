@@ -1,3 +1,1 @@
-describe('Worker Page', () => {
-  
-});
+describe('Worker Page', () => {});
