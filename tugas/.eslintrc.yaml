@@ -9,6 +9,7 @@ extends:
   - plugin:cypress/recommended
   # - google
 plugins:
+  - cypress
   - prettier
 parserOptions:
   ecmaVersion: 12

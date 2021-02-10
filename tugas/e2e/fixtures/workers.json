@@ -1,27 +1,26 @@
 [
-    {
-        "id": 1,
-        "name": "yudi asrama",
-        "age": 15,
-        "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
-        "address": "BTN Graha Permai, Jakarta Utara",
-        "photo": "foto1.png"
-      },
-      {
-        "id": 2,
-        "name": "yudi sutrisno",
-        "age": 15,
-        "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
-        "address": "BTN Graha Permai, Jakarta Utara",
-        "photo": "foto1.png"
-      },
-      {
-        "id": 3,
-        "name": "yudi santoso",
-        "age": 15,
-        "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
-        "address": "BTN Graha Permai, Jakarta Utara",
-        "photo": "foto1.png"
-      }
-  ]
-  
+  {
+    "id": 1,
+    "name": "ahmad",
+    "age": 23,
+    "bio": "tidur enak",
+    "address": "Bekasi",
+    "photo": "user-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "fauzan",
+    "age": 23,
+    "bio": "ngoding seru",
+    "address": "Ciputat",
+    "photo": "user-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "maulana",
+    "age": 23,
+    "bio": "apa aja dah",
+    "address": "Jatinangor",
+    "photo": "user-3.jpg"
+  }
+]
