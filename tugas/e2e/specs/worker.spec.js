@@ -13,7 +13,7 @@ describe('Worker Page', () => {
 
   describe('Error di Worker Page', () => {
     beforeEach(() => {
-      cy.intercept('/list', { fixture: 'list.json' }).as('getList');
+      cy.intercept('/list', { fixture: 'listWorker.json' }).as('getList');
       cy.intercept('/photo/gambar1.jpeg', { fixture: 'gambar1.jpeg' });
       cy.intercept('/photo/gambar2.jpeg', { fixture: 'gambar2.jpeg' });
     });
@@ -39,7 +39,7 @@ describe('Worker Page', () => {
   // tes untuk menampilkan daftar pekerja path /list
   describe('Daftar Pekerja', () => {
     it('seharusnya berhasil menampilkan daftar pekerja', () => {
-      cy.intercept('/list', { fixture: 'list.json' }).as('getList');
+      cy.intercept('/list', { fixture: 'listWorker.json' }).as('getList');
       cy.visit('/worker.html');      
       cy.wait('@getList');
       cy.get('#list').children().as('workerList');
@@ -51,13 +51,13 @@ describe('Worker Page', () => {
   // tes untuk menambahkan profil pekerja baru /register
   describe('Menambahkan Pekerja Baru', () => {
     beforeEach(() => {
-      cy.intercept('/list', { fixture: 'list.json' }).as('getList');
+      cy.intercept('/list', { fixture: 'listWorker.json' }).as('getList');
       cy.intercept('/photo/gambar1.jpeg', { fixture: 'gambar1.jpeg' });
       cy.intercept('/photo/gambar2.jpeg', { fixture: 'gambar2.jpeg' });
     });
 
     it('seharusnya berhasil menambahkan profil pekerja baru', () => {
-      cy.intercept('/register', { fixture: 'register.json' });
+      cy.intercept('/register', { fixture: 'registerWorker.json' });
       cy.intercept('/photo/gambar3.jpeg', { fixture: 'gambar3.jpeg' });
       cy.visit('/worker.html');      
       cy.wait('@getList');
@@ -85,13 +85,13 @@ describe('Worker Page', () => {
 
   describe('Menghapus Data Pekerja', () => {
     beforeEach(() => {
-      cy.intercept('/list', { fixture: 'list.json' }).as('getList');
+      cy.intercept('/list', { fixture: 'listWorker.json' }).as('getList');
       cy.intercept('/photo/gambar1.jpeg', { fixture: 'gambar1.jpeg' });
       cy.intercept('/photo/gambar2.jpeg', { fixture: 'gambar2.jpeg' });
     });
 
     it.skip('seharunya data pekerja terhapus', () => {      
-      cy.intercept('/list', { fixture: 'del.json' }).as('getDel');      
+      cy.intercept('/list', { fixture: 'delWorker.json' }).as('getDel');      
       cy.visit('/worker.html');   
       cy.wait('@getList');      
       
