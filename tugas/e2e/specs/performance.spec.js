@@ -31,7 +31,7 @@ describe('performance Page', () => {
       cy.get('#task-canceled').should('contain.text', '75');
     });
 
-    it('Ketika error 400 bisa menampilkan warning', () => {
+    it('Ketika error bisa menampilkan warning', () => {
       cy.intercept(
         {
           pathname: '/summary',
