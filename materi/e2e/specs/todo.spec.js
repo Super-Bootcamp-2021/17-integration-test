@@ -4,8 +4,11 @@ describe('Todo Page', () => {
   });
 
   describe('tambah item', () => {
-    it('seharusnya ketika di submit item bertambah', () => {
+    beforeEach(() => {
       cy.intercept('/list', { fixture: 'todos' }).as('getList');
+    });
+
+    it('seharusnya ketika di submit item bertambah', () => {
       cy.intercept('/add', { id: 4, task: 'main', done: false });
       cy.visit('/');
       cy.wait('@getList');
@@ -15,6 +18,15 @@ describe('Todo Page', () => {
       cy.get('@todoList').should('have.length', 4);
       cy.get('@todoList').eq(3).should('contain.text', 'main');
       cy.get('@todoList').eq(3).should('not.have.class', 'todo-done');
+    });
+
+    it('seharusnya ketika di submit form di reset', () => {
+      cy.intercept('/add', { fixture: 'todo' });
+      cy.visit('/');
+      cy.wait('@getList');
+      cy.get('input#todo').type('main lagi');
+      cy.get('#todo-form').submit();
+      cy.get('input#todo').should('be.empty');
     });
   });
 
@@ -46,7 +58,7 @@ describe('Todo Page', () => {
       cy.get('@todoList').eq(2).should('contain.text', 'ngoding');
     });
 
-    it('item tugas yang selesai seharusnya dicoret', { timeout: 3000 }, () => {
+    it('item tugas yang selesai seharusnya dicoret', () => {
       cy.intercept('/list', [
         { id: 1, task: 'makan', done: false },
         { id: 2, task: 'minum', done: true },
@@ -57,7 +69,6 @@ describe('Todo Page', () => {
       cy.get('#todo-list').children().as('todoList');
       cy.get('@todoList').eq(0).should('not.have.class', 'todo-done');
       cy.get('@todoList').eq(1).should('have.class', 'todo-done');
-      cy.get('@todoList').eq(2).should('not.have.class', 'todo-done');
     });
   });
 });
