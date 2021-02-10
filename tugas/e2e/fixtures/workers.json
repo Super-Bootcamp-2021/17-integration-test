@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Toni","age": 31,"bio": "asdasd","address": "sdfgsdf", "photo": "test.jpg" },
+  { "id": 2, "name": "Anton","age": 23,"bio": "asdasd","address": "sdfgsdfg", "photo": "test.jpg" },
+  { "id": 3, "name": "Budi","age": 53,"bio": "asdasdasd","address": "sdfgsdfg", "photo": "test.jpg" }
+]
