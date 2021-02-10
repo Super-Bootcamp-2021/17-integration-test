@@ -35,7 +35,7 @@ describe('Todo Page', () => {
       cy.intercept('/list', { fixture: 'todos' }).as('getList');
     });
 
-    it.skip(
+    it(
       'seharusnya mencoret task yang dinyatakan selesai',
       { defaultCommandTimeout: 4000 },
       () => {
@@ -43,10 +43,9 @@ describe('Todo Page', () => {
         cy.visit('/');
         cy.wait('@getList');
         cy.get('#todo-list').children().eq(0).as('makan');
-        cy.get('@makan');
         cy.get('@makan').should('not.have.class', 'todo-done');
         cy.get('@makan').click();
-        cy.get('#todo-list').children().eq(0).should('have.class', 'todo-done');
+        cy.get('@makan').should('have.class', 'todo-done');
       }
     );
   });
