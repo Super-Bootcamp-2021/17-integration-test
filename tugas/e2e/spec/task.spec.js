@@ -53,6 +53,27 @@ describe('Task page', () => {
       cy.get('#list').children().as('taskList');
       cy.get('@taskList').should('have.length', 3);
     });
+    it('seharusnya ketika di submit form di reset', () => {
+      cy.intercept('http://localhost:7002/add', { fixture: 'task' }).as(
+        'addTask'
+      );
+      cy.visit('/tugas/www/tasks.html');
+      cy.wait('@gettasklist');
+      cy.wait('@getworkerlist');
+      cy.get('#job').type('tidur');
+      cy.get('#assignee').select('susanti');
+      cy.fixture('gambar/fullstack.jpg').then((fileContent) => {
+        cy.get('input[type="file"]').attachFile({
+          fileContent: fileContent.toString(),
+          fileName: 'testPicture.jpg',
+          mimeType: 'image/jpg',
+        });
+      });
+      cy.get('#form > button').click();
+
+      cy.wait('@addTask');
+      cy.get('#job').should('have.value', '');
+    });
   });
   describe('cancel task', () => {
     beforeEach(() => {
@@ -92,6 +113,7 @@ describe('Task page', () => {
       cy.visit('/tugas/www/tasks.html');
       cy.wait('@gettasklist');
       cy.wait('@getworkerlist');
+      
       cy.get('#list > :nth-child(1) > :nth-child(5)').as('buttonklik');
       cy.get('@buttonklik').click();
       cy.wait('@kembalian');
