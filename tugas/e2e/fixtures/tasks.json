@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "job": "ngoding",
+    "done": false,
+    "cancelled": false,
+    "addedAt": "2021-02-04T17: 01: 32.000Z",
+    "attachment": "doc.doc",
+    "assignee": {
+      "id": 3,
+      "name": "yudi santoso",
+      "age": 15,
+      "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
+      "address": "BTN Graha Permai, Jakarta Utara",
+      "photo": "foto1.png"
+    }
+  },
+  {
+    "id": 2,
+    "job": "membaca",
+    "done": false,
+    "cancelled": false,
+    "addedAt": "2021-02-04T18: 01: 32.000Z",
+    "attachment": "doc.doc",
+    "assignee": {
+      "id": 3,
+      "name": "yudi santoso",
+      "age": 15,
+      "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
+      "address": "BTN Graha Permai, Jakarta Utara",
+      "photo": "foto1.png"
+    }
+  },
+  {
+    "id": 3,
+    "job": "mencuci baju",
+    "done": false,
+    "cancelled": false,
+    "addedAt": "2021-02-04T19: 01: 32.000Z",
+    "attachment":"doc.doc",
+    "assignee": {
+      "id": 1,
+      "name": "yudi asrama",
+      "age": 15,
+      "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
+      "address": "BTN Graha Permai, Jakarta Utara",
+      "photo": "foto1.png"
+    }
+  },  
+  {
+    "id": 4,
+    "job": "merapikan meja",
+    "done": false,
+    "cancelled": false,
+    "addedAt": "2021-02-04T20: 01: 32.000Z",
+    "attachment":"doc.doc",
+    "assignee": {
+      "id": 2,
+      "name": "yudi sutrisno",
+      "age": 15,
+      "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
+      "address": "BTN Graha Permai, Jakarta Utara",
+      "photo": "foto1.png"
+    }
+  }
+]
