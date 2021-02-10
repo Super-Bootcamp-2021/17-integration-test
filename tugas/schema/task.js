@@ -8,5 +8,5 @@ specTask.host = TASK_SERVICE_BASEURL;
 
 SwaggerUI({
   spec: specTask,
-  dom_id: '#task',
+  dom_id: '#task'
 });
