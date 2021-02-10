@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "yudi asrama",
+        "age": 15,
+        "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
+        "address": "BTN Graha Permai, Jakarta Utara",
+        "photo": "foto1.png"
+      },
+      {
+        "id": 2,
+        "name": "yudi sutrisno",
+        "age": 15,
+        "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
+        "address": "BTN Graha Permai, Jakarta Utara",
+        "photo": "foto1.png"
+      },
+      {
+        "id": 3,
+        "name": "yudi santoso",
+        "age": 15,
+        "bio": "yudi merupakan pekerja yang sangat antusias dalam mengoding program",
+        "address": "BTN Graha Permai, Jakarta Utara",
+        "photo": "foto1.png"
+      }
+  ]
+  

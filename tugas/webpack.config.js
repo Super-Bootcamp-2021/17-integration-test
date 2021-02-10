@@ -14,7 +14,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './www',
-    port: 7000,
+    port: 6190,
   },
   plugins: [
     new DotenvWebpackPlugin({
