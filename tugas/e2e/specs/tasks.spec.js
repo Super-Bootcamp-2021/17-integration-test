@@ -20,9 +20,7 @@ describe('halaman pekerjaan', () => {
     });
 
     it('seharusnya bisa menambahkan pekerjaan', () => {
-      cy.intercept('http://localhost:7002/add', { fixture: 'task-add' }).as(
-        'addTask'
-      );
+      cy.intercept('http://localhost:7002/add', { fixture: 'task-add' }).as('addTask');
       cy.visit('/tasks.html');
       cy.wait('@tasksList');
       cy.wait('@workersList');
@@ -31,6 +29,7 @@ describe('halaman pekerjaan', () => {
       cy.get('#attachment').attachFile('test.txt');
       cy.get('#form').submit();
       cy.wait('@addTask');
+      cy.get('#list').children().should('have.length', 3);
     });
   });
 
@@ -59,6 +58,7 @@ describe('halaman pekerjaan', () => {
       cy.wait('@workersList');
       cy.get('#list').get('div button').last().click();
       cy.wait('@doneTask');
+      cy.get('#list div').eq(1).should('contain.text', 'sudah selesai');
     });
   });
 
@@ -87,6 +87,7 @@ describe('halaman pekerjaan', () => {
       cy.wait('@workersList');
       cy.get('#list').get('div button').eq(2).click();
       cy.wait('@cancelTask');
+      cy.get('#list').children().should('have.length', 1);
     });
   });
 
@@ -109,6 +110,7 @@ describe('halaman pekerjaan', () => {
     it('seharusnya menampilkan data pekerja', () => {
       cy.visit('/tasks.html');
       cy.wait('@tasksList');
+      cy.get('#list').children().should('have.length', 2);
     });
   });
 });
