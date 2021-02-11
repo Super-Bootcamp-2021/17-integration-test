@@ -1,5 +1,5 @@
-[
-  {
+[   
+   {
     "id": 1,
     "name": "Alex",
     "age": 20,
@@ -14,5 +14,13 @@
     "bio": "aaaa",
     "address": "aaaasf",
     "photo": "test.jpg"
-  }
+  },
+    {
+      "id": 3,
+      "name": "gema",
+      "age": 23,
+      "bio": "doyan main",
+      "address": "Bekasi",
+      "photo": "gema.jpg"
+    }
 ]
