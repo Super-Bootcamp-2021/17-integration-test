@@ -21,7 +21,7 @@ module.exports = {
   },
   plugins: [
     new DotenvWebpackPlugin({
-      path: './.env.example',
+      path: './.env',
       safe: true,
     }),
   ],
