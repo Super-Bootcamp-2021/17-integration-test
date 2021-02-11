@@ -3,7 +3,7 @@ const { store$, errorAction, clearErrorAction } = require('./store');
 
 require('./main.css');
 
-const form = document.getElementById('form');
+const form = document.getElementById('worker-form');
 const name = document.getElementById('name');
 const age = document.getElementById('age');
 const photo = document.getElementById('photo');
