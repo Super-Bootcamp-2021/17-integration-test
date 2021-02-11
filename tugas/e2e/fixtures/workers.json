@@ -1,0 +1,27 @@
+
+[
+  {
+    "id": 1,
+    "name": "Budi",
+    "age": 20,
+    "bio": "Suka makan",
+    "address": "Jakarta",
+    "photo": "localhost:9999/photo/profile.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Susi",
+    "age": 25,
+    "bio": "Suka Belanja",
+    "address": "Bandung",
+    "photo": "localhost:9999/photo/profile.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ani",
+    "age": 20,
+    "bio": "Suka jalan",
+    "address": "Medan",
+    "photo": "localhost:9999/photo/profile.jpg"
+  }
+]

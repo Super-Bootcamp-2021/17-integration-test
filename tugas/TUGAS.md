@@ -9,4 +9,3 @@ buat integration test dengan menggunakan `cypress` tanpa menjalankan service dar
 
 1. base case harus 100% terhandle
 1. (optional) edge case
-
