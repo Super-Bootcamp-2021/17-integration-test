@@ -43,7 +43,7 @@ describe('Page - Worker load', () => {
             }).as('getWorker');
         });
 
-        it.only('should add new worker', () => {
+        it('should add new worker', () => {
             cy.intercept('/add', {
                 id: 1,
                 name: 'joshua',
