@@ -1,19 +1,20 @@
- [   {
-      "id": 1,
-      "name": "makmur",
-      "age": 23,
-      "bio": "doyan makan",
-      "address": "Jakarta",
-      "photo": "makmur.jpg"
-    },
-    {
-      "id": 2,
-      "name": "alfa",
-      "age": 22,
-      "bio": "doyan minum",
-      "address": "Depok",
-      "photo": "alfa.jpg"
-    },
+[   
+   {
+    "id": 1,
+    "name": "Alex",
+    "age": 20,
+    "bio": "afwfqw",
+    "address": "sdfaadsgsdf",
+    "photo": "test.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Bilal",
+    "age": 20,
+    "bio": "aaaa",
+    "address": "aaaasf",
+    "photo": "test.jpg"
+  },
     {
       "id": 3,
       "name": "gema",

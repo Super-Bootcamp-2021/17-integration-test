@@ -1,0 +1,16 @@
+{
+    "id": 2,
+    "job": "memanah",
+    "done": true,
+    "cancelled": false,
+    "addedAt": "2021-02-09T08:14:57.558Z",
+    "attachment": "test.txt",
+    "assignee": {
+      "id": 2,
+      "name": "Bilal",
+      "age": 20,
+      "bio": "aaaa",
+      "address": "aaaasf",
+      "photo": "test.jpg"
+    }
+  }

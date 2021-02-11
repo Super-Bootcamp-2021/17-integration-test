@@ -47,3 +47,4 @@ describe('Performance Page', () => {
 		});
   });
 });
+

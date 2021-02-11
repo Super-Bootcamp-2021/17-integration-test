@@ -1,3 +1,4 @@
+
 describe('Worker Page', () => {
   it('bisa buka halaman Worker', () => {
     cy.visit('/worker.html');
@@ -10,8 +11,8 @@ describe('Worker Page', () => {
       cy.wait('@getList');
       cy.get('#list').children().as('workerList');
       cy.get('@workerList').should('have.length', 3);
-      cy.get('@workerList').eq(0).should('contain.text', 'makmur');
-      cy.get('@workerList').eq(1).should('contain.text', 'alfa');
+      cy.get('@workerList').eq(0).should('contain.text', 'Alex');
+      cy.get('@workerList').eq(1).should('contain.text', 'Bilal');
       cy.get('@workerList').eq(2).should('contain.text', 'gema');
     });
   });
