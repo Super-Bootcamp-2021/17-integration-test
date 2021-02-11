@@ -52,8 +52,6 @@ paths:
         - 'todo'
       operationId: 'removeTask'
       description: 'untuk menghapus task lama'
-      consumes:
-        - 'application/json'
       produces:
         - 'application/json'
         - 'text/plain'
@@ -87,8 +85,6 @@ paths:
       description: mengembalikan daftar pekerjaan
       tags:
         - 'todo'
-      consumes:
-        - 'application/json'
       produces:
         - 'application/json'
         - 'text/plain'
@@ -116,8 +112,6 @@ paths:
         - 'todo'
       operationId: 'doneTask'
       description: 'untuk menandakan pekerjaan sudah selesai'
-      consumes:
-        - 'application/json'
       produces:
         - 'application/json'
         - 'text/plain'
@@ -151,8 +145,6 @@ paths:
         - 'todo'
       operationId: 'undoneTask'
       description: 'untuk membatalkan penyelesaian sebuah pekerjaan'
-      consumes:
-        - 'application/json'
       produces:
         - 'application/json'
         - 'text/plain'
