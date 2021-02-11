@@ -1,0 +1,6 @@
+{
+	"total_worker": 10,
+	"total_task": 20,
+	"task_done": 9,
+	"task_cancelled": 3
+}
