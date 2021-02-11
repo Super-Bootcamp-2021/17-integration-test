@@ -65,14 +65,14 @@ describe('Performance Page', () => {
       cy.wait('@getSummary');
     });
 
-    it('seharusnya bisa menampilkan data summary', () => {
+    it.skip('seharusnya bisa menampilkan data summary', () => {
       cy.get('#workers').should('contain.text', '2');
       cy.get('#tasks').should('contain.text', '10');
       cy.get('#task-done').should('contain.text', '4');
       cy.get('#task-canceled').should('contain.text', '2');
     });
 
-    it('seharusnya bisa reload data summary', () => {
+    it.skip('seharusnya bisa reload data summary', () => {
       cy.intercept('/summary', { fixture: 'performance_summaryR.json' })
       cy.get('#refresh').click();
       cy.reload();
