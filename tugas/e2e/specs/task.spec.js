@@ -38,9 +38,9 @@ describe('Task E2E Testing', () => {
   });
 
   describe('Add task', () => {
-    // beforeEach(() => {
-    //   init();
-    // });
+    beforeEach(() => {
+      init();
+    });
 
     it('should add when submit', () => {
       cy.intercept('/add', { fixture: 'task' }).as('addTask');
@@ -61,17 +61,22 @@ describe('Task E2E Testing', () => {
     });
   });
 
-  describe('Done Task Action', () => {
-    beforeEach(() => {
-      init();
-    });
-
-    afterEach(function (done) {
-      done();
-    });
-
+  describe.only('Done Task Action', () => {
     it('Should done when clicked', () => {
-      cy.intercept('/done', { fixture: 'task' }).as('doneTask');
+      cy.intercept('http://localhost:7002/list', {
+        fixture: 'tasks',
+      }).as('getTasks');
+      cy.intercept('http://localhost:7001/list', {
+        fixture: 'workers',
+      }).as('getWorkers');
+      cy.intercept('/attachment', { fixture: 'images/example.jpg' }).as(
+        'getAttachment'
+      );
+      cy.visit('/tasks.html');
+      cy.intercept('PUT','http://localhost:7002/done?id=1', { fixture: 'task' }).as('doneTask');
+      
+      cy.wait('@getWorkers');
+      // cy.wait('@doneTask');
       cy.get('#list').children().eq(0).children().eq(4).as('doneBtn');
       cy.get('@doneBtn').click();
       cy.wait('@doneTask');
@@ -79,8 +84,21 @@ describe('Task E2E Testing', () => {
     });
 
     it("Shouldn't done when clicked", () => {
-      cy.get('#list').children().eq(0).children().eq(4).as('doneBtn2');
-      cy.get('@doneBtn2').click();
+      cy.intercept('http://localhost:7002/list', {
+        fixture: 'tasks',
+      }).as('getTasks');
+      cy.intercept('http://localhost:7001/list', {
+        fixture: 'workers',
+      }).as('getWorkers');
+      cy.intercept('/attachment', { fixture: 'images/example.jpg' }).as(
+        'getAttachment'
+      );
+      cy.visit('/tasks.html');
+      cy.intercept('PUT','http://localhost:7002/done?id=1', { }).as('doneTask');
+      cy.wait('@getWorkers');
+      
+      cy.get('#list').children().eq(1).children().eq(4).as('doneBtn2')
+      cy.get('@doneBtn2').click()
       cy.get('#error-text').should('include.text', 'gagal');
       cy.get('#list').should('not.include.text', 'sudah selesai');
     });
