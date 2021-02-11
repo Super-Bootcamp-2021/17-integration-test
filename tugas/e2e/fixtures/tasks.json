@@ -1,5 +1,0 @@
-[
-  { "id": 1, "job": "makan", "assignee": {"name": "budi"}, "done": false, "attachment": "dino.png" },
-  { "id": 2, "job": "belajar", "assignee": {"name": "adit"}, "done": false, "attachment": "dino.png" },
-  { "id": 3, "job": "tidur", "assignee": {"name": "budi"}, "done": false, "attachment": "dino.png" }
-]
