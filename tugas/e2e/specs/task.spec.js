@@ -61,7 +61,7 @@ describe('Task E2E Testing', () => {
     });
   });
 
-  describe.only('Done Task Action', () => {
+  describe('Done Task Action', () => {
     it('Should done when clicked', () => {
       cy.intercept('http://localhost:7002/list', {
         fixture: 'tasks',
