@@ -9,28 +9,41 @@ describe('Page - Worker load', () => {
             cy.get('[type="text"]').clear()
             cy.get('textarea').clear()
         });
+
         it("Change input test name", () => {
             cy.get('input#name').type('Joshua');
-            expect('input#name').contain('Joshua')
+            cy.get('input#name').should('have.value', 'Joshua');
+            cy.get('input#name').should(($input) => {
+                const val = $input.val();
+
+                expect(val).to.match(/Joshua/);
+                expect(val).to.include('Joshua');
+                expect(val).not.to.include('Budi');
+            });
         });
 
         it("Change input test age", () => {
             cy.get('input#age').type('20');
-            expect('input#age').contain('20')
+            cy.get('input#age').should('have.value', '20');
         });
         it("Change input test bio", () => {
             cy.get('textarea#bio').type('Suka makan ayam');
-            expect('textarea#bio').contain('Suka makan ayam')
+            cy.get('textarea#bio').should('have.value', 'Suka makan ayam');
         });
         it("Change input tes name", () => {
             cy.get('textarea#address').type('Jl. suka suka');
-            expect('textarea#address').contain('Jl. suka suka')
+            cy.get('textarea#address').should('have.value', 'Jl. suka suka');
         });
     })
 
     describe('add worker', () => {
+        beforeEach(() => {
+            cy.intercept('GET', 'http://localhost:7001/list', {
+                fixture: 'workerTask',
+            }).as('getWorker');
+        });
 
-        it('should add new worker', () => {
+        it.only('should add new worker', () => {
             cy.intercept('/add', {
                 id: 1,
                 name: 'joshua',
@@ -39,7 +52,7 @@ describe('Page - Worker load', () => {
                 bio: 'suka makan ayam',
                 address: 'Jl.ku',
             });
-            cy.visit('/');
+            cy.visit('/worker.html');
             cy.wait('@getWorker');
             cy.get('input#worker-form').type('Yuhuu');
             cy.get('#worker-form').submit();
