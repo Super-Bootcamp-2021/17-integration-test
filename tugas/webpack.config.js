@@ -6,9 +6,9 @@ module.exports = {
     tasks: './src/tasks/main.js',
     worker: './src/worker/main.js',
     performance: './src/performance/main.js',
-		workerschema: './schema/worker.js',
-		taskschema: './schema/task.js',
-		performanceschema: './schema/performance.js',
+    workerschema: './schema/worker.js',
+    taskschema: './schema/task.js',
+    performanceschema: './schema/performance.js',
   },
   output: {
     path: path.resolve(__dirname, 'www'),
@@ -19,9 +19,9 @@ module.exports = {
     contentBase: './www',
     port: 7000,
   },
-	plugins: [
+  plugins: [
     new DotenvWebpackPlugin({
-      path: './.env',
+      path: './.env.example',
       safe: true,
     }),
   ],
@@ -31,7 +31,7 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
-			{
+      {
         test: /\.yaml$/,
         use: [{ loader: 'json-loader' }, { loader: 'yaml-loader' }],
       },

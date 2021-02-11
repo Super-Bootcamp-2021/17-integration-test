@@ -1,0 +1,25 @@
+ [   {
+      "id": 1,
+      "name": "makmur",
+      "age": 23,
+      "bio": "doyan makan",
+      "address": "Jakarta",
+      "photo": "makmur.jpg"
+    },
+    {
+      "id": 2,
+      "name": "alfa",
+      "age": 22,
+      "bio": "doyan minum",
+      "address": "Depok",
+      "photo": "alfa.jpg"
+    },
+    {
+      "id": 3,
+      "name": "gema",
+      "age": 23,
+      "bio": "doyan main",
+      "address": "Bekasi",
+      "photo": "gema.jpg"
+    }
+]
