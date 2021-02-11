@@ -6,7 +6,7 @@ describe('Task page', () => {
     cy.intercept('http://localhost:7001/list', { fixture: 'workers' }).as(
       'getworkerlist'
     );
-    cy.visit('/tugas/www/tasks.html');
+    cy.visit('/tasks.html');
   });
   describe('tambah task', () => {
     beforeEach(() => {
@@ -18,14 +18,14 @@ describe('Task page', () => {
       );
     });
     it('seharusnya bisa ngeload task list', () => {
-      cy.visit('/tugas/www/tasks.html');
+      cy.visit('/tasks.html');
       cy.wait('@gettasklist');
       cy.wait('@getworkerlist');
       cy.get('#list').children().as('taskList');
       cy.get('@taskList').should('have.length', 2);
     });
     it('seharusnya keluar pesan error', () => {
-      cy.visit('/tugas/www/tasks.html');
+      cy.visit('/tasks.html');
       cy.wait('@gettasklist');
       cy.wait('@getworkerlist');
       cy.get('#form > button').click();
@@ -35,7 +35,7 @@ describe('Task page', () => {
       cy.intercept('http://localhost:7002/add', { fixture: 'task' }).as(
         'addTask'
       );
-      cy.visit('/tugas/www/tasks.html');
+      cy.visit('/tasks.html');
       cy.wait('@gettasklist');
       cy.wait('@getworkerlist');
       cy.get('#job').type('tidur');
@@ -88,7 +88,7 @@ describe('Task page', () => {
       cy.intercept('http://localhost:7002/cancel?id=1', {
         fixture: 'taskid1',
       }).as('kembalian');
-      cy.visit('/tugas/www/tasks.html');
+      cy.visit('/tasks.html');
       cy.wait('@gettasklist');
       cy.wait('@getworkerlist');
       cy.get('#list > :nth-child(1) > :nth-child(4)').as('buttonklik');
@@ -110,7 +110,7 @@ describe('Task page', () => {
       cy.intercept('http://localhost:7002/done?id=1', {
         fixture: 'taskid1',
       }).as('kembalian');
-      cy.visit('/tugas/www/tasks.html');
+      cy.visit('/tasks.html');
       cy.wait('@gettasklist');
       cy.wait('@getworkerlist');
       
