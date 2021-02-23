@@ -3,3 +3,11 @@ node_modules
 *.db
 file-storage
 www/*.js
+docs
+.tmrc
+.env
+www/*.js
+www/*.txt
+e2e/recordings
+e2e/screenshots
+

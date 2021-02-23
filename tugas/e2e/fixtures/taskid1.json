@@ -1,0 +1,8 @@
+{
+    "id":1,
+    "job":"tidur",
+    "attachment":"gambar3.jpg",
+    "assignee":{
+        "name": "orang"
+    }
+}

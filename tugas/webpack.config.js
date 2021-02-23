@@ -5,6 +5,7 @@ module.exports = {
     tasks: './src/tasks/main.js',
     worker: './src/worker/main.js',
     performance: './src/performance/main.js',
+    schema: './schema/main.js',
   },
   output: {
     path: path.resolve(__dirname, 'www'),
@@ -20,6 +21,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.yaml$/,
+        use: [{ loader: 'json-loader' }, { loader: 'yaml-loader' }],
       },
     ],
   },
