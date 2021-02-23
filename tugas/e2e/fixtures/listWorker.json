@@ -1,0 +1,19 @@
+[
+    { 
+        "id": 1, 
+        "name": "Moh. Ilham Burhanuddin", 
+        "age": 23, 
+        "bio": "ini adalah bio ilham", 
+        "address": "Madura", 
+        "photo": "gambar1.jpeg" 
+    },
+    { 
+        "id": 2, 
+        "name": "William Sherlock", 
+        "age": 25, 
+        "bio": "ini adalah bio dari William Sherlock", 
+        "address": "London", 
+        "photo": "gambar2.jpeg"
+    }
+]
+  
